@@ -1,6 +1,7 @@
 import random
 
 VALID_CHOICES = {"rock", "paper", "scissors"}
+INPUT_ALIASES = {"r": "rock", "p": "paper", "s": "scissors"}
 
 
 def determine_winner(player_choice: str, computer_choice: str) -> str:
@@ -20,17 +21,19 @@ def main() -> None:
     computer_score = 0
 
     print("Welcome to Rock Paper Scissors!")
-    print("Type rock, paper, or scissors to play. Type quit to stop.")
+    print("Type rock/paper/scissors (or r/p/s) to play. Type quit to stop.")
 
     while True:
-        player_choice = input("Your choice: ").strip().lower()
+        player_input = input("Your choice: ").strip().lower()
 
-        if player_choice == "quit":
+        if player_input == "quit":
             print("Thanks for playing!")
             break
 
+        player_choice = INPUT_ALIASES.get(player_input, player_input)
+
         if player_choice not in VALID_CHOICES:
-            print("Invalid choice. Please type rock, paper, scissors, or quit.")
+            print("Invalid choice. Please type rock/paper/scissors, r/p/s, or quit.")
             continue
 
         computer_choice = random.choice(tuple(VALID_CHOICES))

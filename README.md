@@ -8,5 +8,5 @@ Run the game with:
 python rock_paper_scissors.py
 ```
 
-Type `rock`, `paper`, or `scissors` to play each round.
+Type `rock`, `paper`, `scissors` (or `r`, `p`, `s`) to play each round.
 Type `quit` to end the game.
